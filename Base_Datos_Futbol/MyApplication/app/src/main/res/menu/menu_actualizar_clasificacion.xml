@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/actualizar_clasificacion_alta_equipo"
+        android:orderInCategory="1"
+        android:title="Alta Equipo"
+        android:icon="@drawable/ic_action_ic_add"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/actualizar_clasificacion_modificar_equipo"
+        android:orderInCategory="2"
+        android:title="Modificar Equipo"
+        android:icon="@drawable/ic_action_ic_create"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/actualizar_clasificacion_borrar_equipo"
+        android:orderInCategory="3"
+        android:title="Borrar Equipo"
+        android:icon="@drawable/ic_action_ic_delete"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/actualizar_clasificacion_borrar_clasificacion"
+        android:orderInCategory="4"
+        android:title="Borrar Clasificacion"
+        android:icon="@drawable/ic_action_ic_delete"
+        app:showAsAction="never" />
+</menu>

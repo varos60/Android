@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:title="Consulta">
+        <menu>
+            <group android:checkableBehavior="single">
+
+
+                <item
+                    android:id="@+id/nav_clasificacion_consulta"
+                    android:icon="@drawable/ic_action_clasificacion_consulta"
+                    android:title="Clasificación" />
+                <item
+                    android:id="@+id/nav_plantilla"
+                    android:icon="@drawable/ic_action_plantilla"
+                    android:title="Plantilla" />
+                <item
+                    android:id="@+id/nav_partidos"
+                    android:icon="@drawable/ic_action_partidos"
+                    android:title="Partidos" />
+            </group>
+        </menu>
+    </item>
+
+    <item android:title="Actualizar">
+        <menu>
+            <group android:checkableBehavior="single">
+                <item
+                    android:id="@+id/nav_partido"
+                    android:icon="@drawable/ic_action_partidos_edit"
+                    android:title="Partido" />
+                <item
+                    android:id="@+id/nav_jugador"
+                    android:icon="@drawable/ic_action_plantilla_edit"
+                    android:title="Jugador" />
+                <item
+                    android:id="@+id/nav_clasificacion"
+                    android:icon="@drawable/ic_action_clasificacion_editar"
+                    android:title="Clasificación" />
+            </group>
+        </menu>
+    </item>
+
+    <item android:title="Dar de Alta">
+        <menu>
+            <group android:checkableBehavior="single">
+                <item
+                    android:id="@+id/nav_equipo"
+                    android:icon="@drawable/ic_action_equipos"
+                    android:title="Equipo" />
+                <item
+                    android:id="@+id/nav_jugador_alta"
+                    android:icon="@drawable/ic_action_jugador_edit"
+                    android:title="Jugador" />
+                <item
+                    android:id="@+id/nav_borrar"
+                    android:icon="@drawable/ic_action_ic_delete"
+                    android:title="Borrar" />
+            </group>
+        </menu>
+    </item>
+
+</menu>

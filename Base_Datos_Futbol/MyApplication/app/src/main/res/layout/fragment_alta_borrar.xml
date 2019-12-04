@@ -1,0 +1,114 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.alvarobasedatosfutbol.myapplication.Borrado.Borra">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_weight="0.01">
+
+            <TextView
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:textColor="#000000"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="Borrado de Datos"
+                android:id="@+id/textView3"
+                android:gravity="center_horizontal"
+                android:layout_weight="0.10" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.38"
+            android:weightSum="1">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="Selecciona la opción que borrar"
+                android:id="@+id/textView2"
+                android:textColor="#000000"
+                android:padding="10dp"
+                android:layout_gravity="center"
+                android:layout_margin="20dp" />
+
+            <RadioGroup
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:orientation="horizontal"
+                android:gravity="center"
+                android:id="@+id/radio_group"
+                style="@android:style/Widget.Holo.CompoundButton.RadioButton">
+
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Equipo"
+                    android:id="@+id/equipo_radio"
+                    android:padding="5dp"
+                    android:checked="true"/>
+
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Jugador"
+                    android:id="@+id/jugador_radio"
+                    android:padding="5dp" />
+
+            </RadioGroup>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.38"
+            android:layout_margin="20dp">
+
+            <Spinner
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/spinner_opcion_borrar"
+                android:layout_margin="20dp"
+                android:clickable="true"
+                android:transitionGroup="false"
+                style="@android:style/Widget.Holo.Light.Spinner" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_weight="0.03">
+
+            <Button
+                android:id="@+id/borrar"
+                android:layout_width="181dp"
+                android:layout_height="fill_parent"
+                android:layout_gravity="center_horizontal"
+                android:layout_margin="5dp"
+                android:text="Borrar"
+                android:textColor="#000000" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+</FrameLayout>

@@ -1,0 +1,17 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/fragment_principal"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:tag="Fragment_Principal"
+    tools:context="com.alvarobasedatosfutbol.myapplication.Consultas.Partidos.Consulta_Partidos">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+    </LinearLayout>
+
+
+</FrameLayout>
