@@ -57,6 +57,7 @@ public class MainActivity extends AppCompatActivity
     ActionBarDrawerToggle toggle;
     private boolean mToolBarNavigationListenerIsRegistered = false;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -253,6 +254,7 @@ public class MainActivity extends AppCompatActivity
                     Toast.LENGTH_SHORT).show();
         }
     }
+
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         switch (requestCode) {
@@ -262,18 +264,19 @@ public class MainActivity extends AppCompatActivity
                     String data_scheme = data.getScheme();
                     Log.i("Ruta:", data_path);
                     Log.i("Esquema:", data_scheme);
-                    BD_Buckup.Recover_BBDD(data_path, data_scheme, this);
+                    BD_Buckup.Recover_BBDD(data_path, data_scheme, this, data.getData());
                 }
                 break;
         }
         super.onActivityResult(requestCode, resultCode, data);
     }
     public void getPermision(){
-
-        if (ContextCompat.checkSelfPermission(this, android.Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
+        Log.i("Permisos2:", String.valueOf(ContextCompat.checkSelfPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED));
+        Log.i("Permisos3:", String.valueOf(PackageManager.PERMISSION_GRANTED));
+        if (ContextCompat.checkSelfPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
 
             if (ActivityCompat.shouldShowRequestPermissionRationale(this,
-                    android.Manifest.permission.WRITE_EXTERNAL_STORAGE)) {
+                    Manifest.permission.WRITE_EXTERNAL_STORAGE)) {
 
             } else {
 
@@ -290,11 +293,11 @@ public class MainActivity extends AppCompatActivity
                 // If request is cancelled, the result arrays are empty.
                 if (grantResults.length > 0
                         && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-
-                } else {
-
+                    Log.i("Permitido", "");
+                }else
+                {
+                    Toast.makeText(this, "The app was not allowed to write to your storage. Hence, it cannot function properly. Please consider granting it this permission", Toast.LENGTH_LONG).show();
                 }
-                return;
             }
 
         }

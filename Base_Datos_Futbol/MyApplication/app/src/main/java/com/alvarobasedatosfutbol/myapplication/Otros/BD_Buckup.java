@@ -1,15 +1,19 @@
 package com.alvarobasedatosfutbol.myapplication.Otros;
 
 import android.content.Context;
+import android.net.Uri;
 import android.os.Environment;
 import android.util.Log;
 import android.widget.Toast;
 
 import com.alvarobasedatosfutbol.myapplication.Base_Datos.Base_Datos;
+import com.alvarobasedatosfutbol.myapplication.MainActivity;
 
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
+import java.io.InputStream;
+import java.io.OutputStream;
 import java.nio.channels.FileChannel;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -18,6 +22,8 @@ import java.util.Date;
  * Created by Álvaro on 04/10/2016.
  */
 public class BD_Buckup {
+
+    private MainActivity mainActivity;
     //Metodo para hacer buckup de la base de datos
     public static void BD_Backup() {
         try {
@@ -54,7 +60,8 @@ public class BD_Buckup {
             Log.i("Backup Error: ", e.toString());
         }
       }
-        public static void Recover_BBDD(String path_bbdd, String scheme_bbdd, Context context){
+        public static void Recover_BBDD(String path_bbdd, String scheme_bbdd, Context context, Uri prueba){
+            File new_file = new File(prueba.getPath());
             int ext_pos = path_bbdd.lastIndexOf(".");
             String file_extension = path_bbdd.substring(ext_pos);
             Log.i("Extension", file_extension);
@@ -71,21 +78,33 @@ public class BD_Buckup {
                     File data = Environment.getDataDirectory();
                     String packageName  = "com.alvarobasedatosfutbol.myapplication";
                     String sourceDBName = Base_Datos.bd_name;
+
                     if (sd.canWrite()) {
                         String currentDBPath = "data/" + packageName + "/databases/" + sourceDBName;
                         String recoverDBPath = file_path;
 
                         File currentDB = new File(data, currentDBPath);
                         File recoverDB = new File(sd, recoverDBPath);
+                        Log.i("Tag", String.valueOf(currentDB.exists()));
 
                         Log.i("Backup","OrigenDB=" + recoverDB.getAbsolutePath());
                         Log.i("Backup","DestinoDB=" + currentDB.getAbsolutePath());
-
-                        FileChannel src = new FileInputStream(recoverDB).getChannel();
+                        FileOutputStream outStream = new FileOutputStream(currentDB);
+                        InputStream in = context.getContentResolver().openInputStream(prueba);
+                        OutputStream out = outStream;
+                        byte[] buffer = new byte[1024];
+                        int read;
+                        while ((read = in.read(buffer)) != -1) {
+                            out.write(buffer, 0, read);
+                        }
+                        in.close();
+                        out.flush();
+                        out.close();
+                        /*FileChannel src = new FileInputStream(new_file).getChannel();
                         FileChannel dst = new FileOutputStream(currentDB).getChannel();
                         dst.transferFrom(src, 0, src.size());
                         src.close();
-                        dst.close();
+                        dst.close();*/
                         Toast.makeText(context,"BBDD Recuperada",Toast.LENGTH_SHORT).show();
                     }
                 } catch (Exception e) {
