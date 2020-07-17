@@ -57,9 +57,11 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="15dp"
+                android:checked="true"
                 android:fontFamily="sans-serif-black"
                 android:text="Hombre"
                 android:textColor="@color/colorWhite"
+                android:buttonTint="@color/colorAccent"
                 android:textSize="18sp" />
 
             <RadioButton
@@ -67,6 +69,7 @@
                 style="@android:style/Widget.CompoundButton.RadioButton"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:buttonTint="@color/colorAccent"
                 android:fontFamily="sans-serif-black"
                 android:text="Mujer"
                 android:textColor="@color/colorWhite"

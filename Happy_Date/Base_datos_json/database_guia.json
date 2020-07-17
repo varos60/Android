@@ -1,3 +1,6 @@
+//gender 0 = hombre 1 = mujer
+//number fijo 1 y 2
+//who 0 = hombre 1 = mujer 2 = ambos
 {"players": [
         {"name": "Álvaro",
          "gender": 0,

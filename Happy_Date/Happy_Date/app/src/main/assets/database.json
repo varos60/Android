@@ -1,0 +1,23 @@
+{"players": [
+  {"name": "Álvaro",
+    "gender": 0,
+    "id": 1
+  },
+  {"name": "Atenea",
+    "gender": 1,
+    "id": 2
+  }
+],
+  "categories": [
+    {"id": 1,
+      "name": "Preliminares",
+      "challenges": [
+        {"id": 1,
+          "name": "Besa el cuerpo de {player}",
+          "who": 2,
+          "to_whom": 2,
+          "image": ""}
+      ]
+    }
+  ]
+}
