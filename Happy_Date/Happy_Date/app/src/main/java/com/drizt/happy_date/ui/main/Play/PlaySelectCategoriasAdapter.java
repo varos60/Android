@@ -6,8 +6,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
+import android.widget.Toast;
 
 import com.drizt.happy_date.Clases.Categorie;
+import com.drizt.happy_date.MainActivity;
 import com.drizt.happy_date.R;
 
 import java.util.ArrayList;
@@ -19,16 +21,17 @@ public class PlaySelectCategoriasAdapter extends RecyclerView.Adapter<PlaySelect
     ArrayList<Categorie> list_categorias;
     private onCheckChange onCheckChange;
     private SparseBooleanArray mSelectedItemsIds;
-    int [] positions;
+    ArrayList<Integer> positions;
 
     public interface onCheckChange{
         void onCheckedChange(boolean check);
     }
 
-    public PlaySelectCategoriasAdapter(ArrayList<Categorie> list_categorias, onCheckChange onCheckChange) {
+    public PlaySelectCategoriasAdapter(ArrayList<Categorie> list_categorias, onCheckChange onCheckChange, ArrayList<Integer> positions) {
         this.list_categorias = list_categorias;
         this.onCheckChange = onCheckChange;
         mSelectedItemsIds = new SparseBooleanArray();
+        this.positions = positions;
     }
 
     @Override
@@ -38,7 +41,7 @@ public class PlaySelectCategoriasAdapter extends RecyclerView.Adapter<PlaySelect
     }
 
     @Override
-    public void onBindViewHolder(ViewHolderPlay holder, int position) {
+    public void onBindViewHolder(final ViewHolderPlay holder, final int position) {
         Categorie categorie = list_categorias.get(position);
         holder.checkbox.setText(categorie.getName());
         holder.checkbox.setOnCheckedChangeListener(null);
@@ -46,8 +49,14 @@ public class PlaySelectCategoriasAdapter extends RecyclerView.Adapter<PlaySelect
         holder.checkbox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                if (isChecked) {
-
+                if (list_categorias.get(position).getChallenges().size()>0) {
+                    if (isChecked) {
+                        positions.add(position);
+                    } else {
+                        positions.remove(position);
+                    }
+                }else{
+                    Toast.makeText(holder.itemView.getContext(), "Categoria Sin Retos", Toast.LENGTH_LONG).show();
                 }
                 onCheckChange.onCheckedChange(isChecked);
             }
