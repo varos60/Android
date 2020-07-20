@@ -50,7 +50,7 @@ public class ConfigEditReto extends Fragment {
     private static final String ARG_PARAM1 = "position";
     public static final int GALLERY_REQUEST_CODE = 105;
     String currentPhotoPath;
-    String currentUriString;
+    String currentUriString = "";
 
     private int [] mParam1;
     EditText name;
@@ -215,6 +215,7 @@ public class ConfigEditReto extends Fragment {
         who.check(radioButton.getId());
         View radioButton2 = to_whom.getChildAt(challenge.getTo_whom());
         to_whom_type = challenge.getTo_whom();
+        currentUriString = challenge.getImage();
         if (!challenge.getImage().equals("")){
             image.setImageURI(Uri.parse(challenge.getImage()));
         }else{
